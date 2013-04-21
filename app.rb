@@ -12,10 +12,12 @@ get '/' do
 end
 
 get '/parse' do
-	doc = Hpricot(open("http://images.earthkam.ucsd.edu/main.php?g2_itemId=142389"))
+	root_url = "http://images.earthkam.ucsd.edu/"
+
+	doc = Hpricot(open("#{root_url}main.php?g2_itemId=142389"))
 
 	@title = doc.at("p.giDescription/b").inner_html
-	@image_url = doc.at("#gsImageView/img")['src']
-	
+	@image_url = root_url + doc.at("#gsImageView/img")['src']
+
 	erb :data
 end
