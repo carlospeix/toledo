@@ -1,4 +1,3 @@
-Given /^the secret code is "(.*)"$/ do |code|
-  visit "/setcode/#{code}"
+Given /^I get any image page$/ do
+  visit '/parse'
 end
-
