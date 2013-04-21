@@ -18,6 +18,7 @@ get '/parse' do
 
 	@title = doc.at("p.giDescription/b").inner_html
 	@image_url = root_url + doc.at("#gsImageView/img")['src']
+	@kml_url = doc.at("td.download_icon/a")['href']
 
 	erb :data
 end
