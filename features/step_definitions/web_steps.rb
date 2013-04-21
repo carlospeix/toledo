@@ -7,7 +7,7 @@ When /^I click on "(.*)"$/ do |text|
 end
 
 Then /^I should see "(.*)"$/ do |text|
-  last_response.body.should =~ /#{text}/m
+  last_response.body.should contain(text)
 end
 
 When /^I fill "(.*)" with "(.*)"$/ do |field, value|
