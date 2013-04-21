@@ -13,7 +13,9 @@ end
 
 get '/parse' do
 	doc = Hpricot(open("http://images.earthkam.ucsd.edu/main.php?g2_itemId=142389"))
-	@title = (doc/"p.giDescription/b").inner_html
-	@image_url = (doc/"#gsImageView/img")[0]['src']
+
+	@title = doc.at("p.giDescription/b").inner_html
+	@image_url = doc.at("#gsImageView/img")['src']
+	
 	erb :data
 end
